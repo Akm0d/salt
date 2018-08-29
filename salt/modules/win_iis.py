@@ -160,6 +160,16 @@ def _srvmgr(cmd, return_json=False):
     return ret
 
 
+def _collection_match_to_index(pspath, colfilter, name, match):
+    '''
+    Returns index of collection item matching the match dictionary.
+    '''
+    collection = get_webconfiguration_settings(pspath, [{'name': name, 'filter': colfilter}])[0]['value']
+    for idx, collect_dict in enumerate(collection):
+        if all(item in collect_dict.items() for item in match.items()):
+            return idx
+    return -1
+
 def list_sites():
     '''
     List all the currently deployed websites.
