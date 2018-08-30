@@ -914,7 +914,7 @@ def webconfiguration_settings(name, settings=None):
 
     .. code-block:: yaml
 
-        {{ projecttypeapplication }}-IIS-level-security:
+        site0-IIS-level-security:
           win_iis.webconfiguration_settings:
             - name: 'IIS:\'
             - settings:
